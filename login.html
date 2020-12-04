@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>
-        Ain Shams E-commerce login/sign up
-    </title>
-</head>
-<body>
-    <h1>Welcome to Ain shams E-commerce</h1>
-</body>
+  <style>
+    form.login{
+      position: relative;
+      left: 550px;
+      top: 200px;
+      border: rgb(253, 63, 0);
+      border-color: maroon;
+      border-radius: 10px;
+      background-color: rgb(3, 0, 0);
+      width: 400px;
+      height: 400px;
+    }
 
+    label,input{
+        color: rgb(105, 105, 41);
+        font-size: 10pt;
+        position: relative;
+        left: 100px;
+        top: 50px;
+    }
+
+  </style>
+
+</head>
+
+<body style="background-image: url('the-golden-cart.jpeg');">
+
+
+
+    <form class="login">
+        <label style="font-weight: bolder;" for="Email">Email adress:</label><br>  
+        <input type="text" id="Email"><br>
+        <label style="font-weight: bolder;" for="password">Password:</label><br>
+        <input type="text" id="password"><br>
+        <br>
+        <input type="submit" id="login" value="login"><br>
+      
+      </form>
+
+
+
+</body>
 </html>
