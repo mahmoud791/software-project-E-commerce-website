@@ -82,4 +82,4 @@ def homePage(request):
         "items":items
     }
 
-    return render(request,'home_page/homePage.html',context)
+    return render(request,'home/homePage.html',context)

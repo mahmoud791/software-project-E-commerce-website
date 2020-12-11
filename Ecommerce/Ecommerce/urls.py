@@ -1,4 +1,4 @@
-"""devolpment_on_Ecommerce URL Configuration
+"""Ecommerce URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -18,5 +18,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('home_page.urls'))
+    path('',include('home.urls'))
+    
+
 ]
