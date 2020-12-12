@@ -9,7 +9,7 @@ from django.contrib import messages
 
 
 def login_page (request):
-    context = {}
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -20,8 +20,12 @@ def login_page (request):
             return redirect('home')
         else:
             messages.info(request, 'Username or Password is incorrect.')
-            return render(request,'login/login.html',context)
-    return render(request,'login/login.html',context)
+    context = {}        
+    return render(request,'login/login.html' ,context)
+
+def log_out(request):
+    logout(request)
+    return redirect('login')
 
 def register (request):
     form = NewUser()
