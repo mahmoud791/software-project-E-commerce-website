@@ -1,14 +1,47 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from authentication.models import user
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from .forms import NewUser
+from django.contrib import messages
 
-def login (request):
-    context = {
-        'user_name' : user.user_name,
 
-    }
+
+def login_page (request):
+    context = {}
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Username or Password is incorrect.')
+            return render(request,'login/login.html',context)
     return render(request,'login/login.html',context)
 
 def register (request):
-    context = {}
+    form = NewUser()
+    if request.method == 'POST':
+        form = NewUser(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, f'{user} has been successfully created.')
+            return redirect('login')
+    context = {'form' : form}
     return render(request,'register/register.html',context)
+
+def test_user_creation (request):
+    form = NewUser()
+    if request.method == 'POST':
+        form = NewUser(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, f'{user.capitalize()} has been successfully created.')
+    context = {'form' : form }
+    return render(request,'testing/createuser.html',context)

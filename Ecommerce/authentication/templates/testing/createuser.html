@@ -1,0 +1,11 @@
+<form action="" method = "POST">
+    {% csrf_token %}
+    {{form.username}}
+    {{form.email}}
+    {{form.password1}}
+    {{form.password2}}
+
+    <!-- {{form}} -->
+
+    <input type="submit" name="testUser">
+</form>
