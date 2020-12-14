@@ -84,6 +84,7 @@ def homePage(request):
 
     return render(request,'home/homePage.html',context)
 
+
 def user_profile(request):
     context = {}
     return render(request, 'profile/profile.html', context)
