@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from .forms import NewUser
 from django.contrib import messages
+from .models import profile
 
 
 
@@ -34,6 +35,9 @@ def register (request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
+            # u_profile = profile.objects.create(user=user)
+            # u_profile.is_seller = request.POST.get('is_seller')
+            # u_profile.save()
             messages.success(request, f'{user} has been successfully created.')
             return redirect('login')
     context = {'form' : form}

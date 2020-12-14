@@ -1,3 +1,9 @@
 <h1>this is the user profile page W.I.P.</h1>
-<br>
+
+<h3> Username: {{ request.user.username }} </h3>
+<h3> Email: {{ request.user.email }} </h3>
+<h3> Seller Account: {{ request.user.is_staff }} </h3>
+<!-- <h3> Seller Account_from profile: {{ user.profile.is_seller }} </h3> -->
+
+
 <a href="{% url 'home' %}"> go home </a>

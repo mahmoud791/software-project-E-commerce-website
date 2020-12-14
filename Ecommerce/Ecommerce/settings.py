@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+############
+#Creating users' profiles
+AUTH_PROFILE_MODULE = 'authentication.UserProfile'
+############
 
 # Application definition
 
