@@ -25,7 +25,7 @@ def login_page (request):
 
 def log_out(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 def register (request):
     form = NewUser()
@@ -49,3 +49,5 @@ def test_user_creation (request):
             messages.success(request, f'{user.capitalize()} has been successfully created.')
     context = {'form' : form }
     return render(request,'testing/createuser.html',context)
+
+
