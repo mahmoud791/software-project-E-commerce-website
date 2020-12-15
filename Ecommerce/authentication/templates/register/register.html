@@ -55,13 +55,17 @@
 						<input class="input100" type="password" name="password2" placeholder=" Confirm Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
                     </div>
-                    
-					<!-- <div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div> -->
+					<div class="text-center p-t-90" style="color: white;">
+						Check the box below to register as a Seller
+						<br>
+					</div>
+					<div class="contact100-form-checkbox">
+						{{ form.is_staff }}
+						<!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="is_staff"> -->
+						<!-- <label class="label" style="nav: 50%;">
+							Register as Seller
+						</label> -->
+					</div>
 
 					<div class="container-login100-form-btn">
 						<!-- <button class="">
