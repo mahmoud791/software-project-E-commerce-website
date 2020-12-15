@@ -2,6 +2,17 @@ from django.urls import path
 from home import views
 
 urlpatterns = [
-    path('',views.homePage, name = 'home'),
+    path('',views.homePage,name = 'home'),
     path('profile',views.user_profile, name = 'profile'),
+    path('clothes',views.category,{'category':'clothes'},name='clothes'),
+    path('shoes',views.category,{'category':'shoes'},name='shoes'),
+    path('watches',views.category,{'category':'watches'},name='watches'),
+    path('laptops',views.category,{'category':'laptops'},name='laptops'),
+    path('mobile_phones',views.category,{'category':'mobile_phones'},name='mobile_phones'),
+    path('headphones&headsets',views.category,{'category':'headphones&headsets'},name='headphones&headsets'),
+    path('perfumes&deodrants',views.category,{'category':'perfumes&deodrants'},name='perfumes&deodrants'),
+    path('accessories',views.category,{'category':'accessories'},name='accessories'),
+    path('kid_toys',views.category,{'category':'kid_toys'},name='kid_toys'),
+
+    
 ]

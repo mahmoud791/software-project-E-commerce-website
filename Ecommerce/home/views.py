@@ -1,81 +1,7 @@
 from django.shortcuts import render
+from home .models import Product
 
-items = [
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-    {
-        "image":"https://assets.crowdspring.com/marketing/landing-page/crowdspring-product-design-phase1-1120.jpg",
-        "price":"30$",
-        "description":"simple crystal vase",
-        "name":"vase",
-        "reviews":3
-    },
-
-
-   
-
-]
+items = Product.objects.all()
 
 def homePage(request):
     context = {
@@ -88,3 +14,32 @@ def homePage(request):
 def user_profile(request):
     context = {}
     return render(request, 'profile/profile.html', context)
+
+def category(request,category):
+    items = {}
+    if category =='clothes':
+        items = Product.objects.filter(category='clothes')
+    elif category=='shoes':
+        items = Product.objects.filter(category='shoes')
+    elif category=='watches':
+        items = Product.objects.filter(category='watches')
+    elif category=='laptops':
+        items = Product.objects.filter(category='laptops')
+    elif category=='mobile_phones':
+        items = Product.objects.filter(category='mobile phones')
+    elif category=='headphones&headsets':
+        items = Product.objects.filter(category='headphones/headsets')
+    elif category=='perfumes&deodrants':
+        items = Product.objects.filter(category='perfumes/deodrants')
+    elif category=='accessories':
+        items = Product.objects.filter(category='accessories')
+    elif category=='kid_toys':
+        items = Product.objects.filter(category='kid toys')
+
+
+    context = {
+        'items':items
+    }
+    
+
+    return render(request,'category/category.html',context)
