@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import *
+from home.models import *
 
 items = Product.objects.all()
 
