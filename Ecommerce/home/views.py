@@ -43,3 +43,11 @@ def category(request,category):
     
 
     return render(request,'category/category.html',context)
+
+def cart(request):
+    context = {}
+    return render(request, 'home/cart.html', context)
+
+def checkout(request):
+    context = {}
+    return render(request, 'home/checkout.html', context)
