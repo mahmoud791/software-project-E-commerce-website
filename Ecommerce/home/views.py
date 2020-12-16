@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from home .models import Product
+from .models import *
 
 items = Product.objects.all()
 
@@ -43,6 +43,8 @@ def category(request,category):
     
 
     return render(request,'category/category.html',context)
+
+
 
 def cart(request):
     context = {}
