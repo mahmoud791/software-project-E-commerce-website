@@ -38,6 +38,7 @@ AUTH_PROFILE_MODULE = 'authentication.UserProfile'
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'authentication',
+    'sellerProfile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
