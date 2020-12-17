@@ -15,7 +15,27 @@
   <link href= "{% static 'home/vendor/bootstrap/css/bootstrap.min.css'  %}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href= "{% static 'home/css/shop-homepage.css' %}" rel="stylesheet">
+  
+  <script type="text/javascript">
+    var user = '{{request.user}}'
+    
+    function getToken(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getToken('csrftoken');
+  </script>
 </head>
 
 <body>
@@ -91,7 +111,7 @@
       <!-- Bootstrap core JavaScript -->
       <script src="{% static 'home/vendor/jquery/jquery.min.js' %}"></script>
       <script src="{% static 'home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    
+      <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
     </body>
     
     </html>
