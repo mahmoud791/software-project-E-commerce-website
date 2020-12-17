@@ -34,11 +34,19 @@
 					<div style="flex:1"><strong>Total</strong></div>
 				</div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				{%for item in items1%}
 				<div class="cart-row">
 					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
 					<div style="flex:2">{{item.product.name}}</div>
 					<div style="flex:1">{{item.product.price}}</div>
+=======
+				{% for item in items %}
+				<div class="cart-row">
+                    <div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"></div>
+					<div style="flex:2">{{ item.product.name }}</div>
+					<div style="flex:1">{{ item.product.price|floatformat:2 }}</div>
+>>>>>>> Stashed changes
 =======
 				{% for item in items %}
 				<div class="cart-row">
@@ -56,9 +64,12 @@
 					</div>
 					<div style="flex:1"><p>$32</p></div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				</div>
                 {%endfor%}
 =======
+=======
+>>>>>>> Stashed changes
                 </div>
                 {% endfor %}
 
