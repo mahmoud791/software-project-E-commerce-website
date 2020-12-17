@@ -31,22 +31,35 @@
                 <input type="number" class="form-control" id="recipient-name">
               </div>
 
-            <div class="dropdown">
-                <label for="recipient-name" class="col-form-label">Category:</label>
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" href="#menu6">
-                    Choose Product Category  <b class="caret"></b>
-                </button>
-              </div>
+
+              <div class="container">
+                <div class="row mt-2">
+                    <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Category:</label>
+                <select class="custom-select" style="width: auto">
+                    <option selected>Open this select menu</option>
+                    <!--/3awz for loop 3ashan amlah el Category
+                    {% for Category in home.Proudct %}
+                    <option value="{{ Product.Category }}">{{ Category }}</option>
+                   {% endfor %}
+                     -->
+                  </select>
+            </div>
+          </div>
+        </div>
+              
               
             <div class="form-group">
               <label for="message-text" class="col-form-label">Description:</label>
               <textarea class="form-control" id="message-text"></textarea>
             </div>
 
-            <div class="input-group">
-                <label for="recipient-name" class="col-form-label">Image:   </label>
-                    <input type="file" id="img" name="img" accept="image/*">
-              </div>
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Proudct image:
+              </label>
+              <input type="file" class="form-control-file" accept="image/*">
+            </div>
+
             
           </form>
         </div>
