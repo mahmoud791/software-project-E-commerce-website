@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from home.models import *
+from .models import *
 
 items = Product.objects.all()
 
@@ -47,7 +47,15 @@ def category(request,category):
 
 
 def cart(request):
-    context = {}
+
+    if request.user.is_authenticated:
+        customer=request.user.customer
+        order, created=Order.objects.get_or_create(customer=customer,complete=False)
+        items=order.orderitem_set.all()
+    else:
+        items=[]
+    
+    context = {'items':items}
     return render(request, 'home/cart.html', context)
 
 def checkout(request):
