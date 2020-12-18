@@ -16,7 +16,7 @@ urlpatterns = [
     path('cart',views.cart,name = "cart"),
     path('checkout',views.checkout,name = "checkout"),
     path('update_item/',views.updateItem,name = "update_item"),
-    path('<slug:slug>/',views.product_detail,name='product_detail'),
+    path('product/<slug:slug>/',views.product_detail,name='product_detail'),
 
     
 ]

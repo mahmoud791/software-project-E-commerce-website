@@ -40,11 +40,12 @@
         
 
         <hr>
+        <hr>
         <h2 class="subtitle">Reviews:</h2>
         <div class="reviews-wrapper">
         
             {% for review in product.reviews.all %}
-            <br>
+            <hr>
                 <div class="notification space-below">
                     <p> <strong>username: </strong>{{ review.user }},
                         {{ review.stars }}: <strong>Stars</strong>
@@ -52,7 +53,7 @@
 
                     {{ review.content }}
                 </div>
-            <br>
+            <hr>
             {% empty %}
                 <div class="notification space-below">
                     No reviews yet...
