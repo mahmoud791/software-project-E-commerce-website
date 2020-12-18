@@ -116,3 +116,10 @@ def addNewProduct (request):
     
 
     return redirect("/profile")
+
+def search(request):
+    q = request.GET.get('q')
+    products = Product.objects.filter(name__icontains=q)
+    context = {'query' : q, 'products' : products}
+    tempelate = 'home/search.html'
+    return render(request,tempelate,context)

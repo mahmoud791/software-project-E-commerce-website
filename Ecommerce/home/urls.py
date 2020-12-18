@@ -18,6 +18,7 @@ urlpatterns = [
     path('checkout',views.checkout,name = "checkout"),
     path('update_item/',views.updateItem,name = "update_item"),
     path('product/<slug:slug>/',views.product_detail,name='product_detail'),
+    path('search/',views.search,name="search")
 
     
 ]
