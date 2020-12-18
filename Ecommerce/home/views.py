@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import JsonResponse
 import json
 from .models import *
@@ -85,3 +85,21 @@ def updateItem(request):
         orderItem.delete()
     
     return JsonResponse('Item was added', safe=False)
+
+
+def product_detail(request,slug):
+    product = get_object_or_404(Product,slug=slug)
+    context = {
+        'product': product
+    }
+    
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        stars = request.POST.get('stars', 3)
+        content = request.POST.get('content', '')
+
+        review = ProductReview.objects.create(product=product, user=request.user, stars=stars, content=content)
+
+        return redirect('product_detail', slug=slug)
+
+    return render(request,'home/product_detail.html',context)
