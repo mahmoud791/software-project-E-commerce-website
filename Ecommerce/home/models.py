@@ -6,6 +6,7 @@ from django.utils.text import slugify
 class Customer(models.Model):
     user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
     name = models.CharField(max_length=64,null=True)
+    
       
     def __str__(self):
         return self.name
