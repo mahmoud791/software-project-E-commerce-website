@@ -35,10 +35,10 @@
         <br><br>
         <h1 class="title" >{{product.name}}</h1>
         <img src="{% static 'images/'%}{{product.image}}" >
+        
         <h1 class="title" >{{product.price}}EGP</h1>
         <h1 class="title">{{product.get_rating|floatformat:1}}:Stars</h1>
-        
-
+        <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
         <hr>
         <hr>
         <h2 class="subtitle">Reviews:</h2>
