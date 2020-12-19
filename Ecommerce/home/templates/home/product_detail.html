@@ -38,7 +38,7 @@
         <h1 class="title" >{{product.price}}EGP</h1>
         <h1 class="title">
 
-            {%if item.get_rating > 1 and  item.get_rating < 2 %}
+                  {%if product.get_rating > 1 and  item.get_rating < 2 %}
                   <small class="text-muted">&#9733; &#9734; &#9734; &#9734; &#9734;</small>
                   {%elif product.get_rating >= 2 and  product.get_rating < 3 %}
                   <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small>
@@ -66,7 +66,20 @@
                 <div class="notification space-below">
                     <p> <strong>username: </strong>{{ review.user }}
                         <br>
-                        {{ review.stars }}: <strong>Stars</strong>
+                        {%if review.stars > 1 and  review.stars < 2 %}
+                        <small class="text-muted">&#9733; &#9734; &#9734; &#9734; &#9734;</small>
+                        {%elif review.stars >= 2 and  review.stars < 3 %}
+                        <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small>
+                        {%elif review.stars >= 3 and  review.stars < 4 %}
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734;</small>
+                        {%elif review.stars >= 4 and  review.stars < 5 %}
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        {%elif review.stars == 5 %}
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
+                        {% else %}
+                        <small class="text-muted">&#9734; &#9734; &#9734; &#9734; &#9734;</small>
+                        {% endif %}
+                        
                     </p>
 
                     {{ review.content }}
