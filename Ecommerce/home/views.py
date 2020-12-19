@@ -103,3 +103,23 @@ def product_detail(request,slug):
         return redirect('product_detail', slug=slug)
 
     return render(request,'home/product_detail.html',context)
+def addNewProduct (request):
+
+    name=request.POST["name"]
+    price=request.POST["price"]
+
+    category=request.POST["category"]
+    description=request.POST["description"]
+    image=request.FILES["image"]
+    newproduct = Product(name=name,description=description,price=price,image=image, category= category)
+    newproduct.save()
+    
+
+    return redirect("/profile")
+
+def search(request):
+    q = request.GET.get('q')
+    products = Product.objects.filter(name__icontains=q)
+    context = {'query' : q, 'products' : products}
+    tempelate = 'home/search.html'
+    return render(request,tempelate,context)

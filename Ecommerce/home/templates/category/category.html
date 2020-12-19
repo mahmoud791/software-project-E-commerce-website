@@ -47,7 +47,25 @@
                 <p class="card-text">{{item.description}}</p>
               </div>
               <div class="card-footer">
-                <small class="text-muted">{{item.get_rating|floatformat:1}}:Stars</small>
+                <small class="text-muted">
+                  
+
+                  {%if item.get_rating >= 1 and  item.get_rating < 2 %}
+                  <small class="text-muted">&#9733; &#9734; &#9734; &#9734; &#9734;</small>
+                  {%elif item.get_rating >= 2 and  item.get_rating < 3 %}
+                  <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small>
+                  {%elif item.get_rating >= 3 and  item.get_rating < 4 %}
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734;</small>
+                  {%elif item.get_rating >= 4 and  item.get_rating < 5 %}
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                  {%elif item.get_rating == 5 %}
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
+                  {% else %}
+                  <small class="text-muted">&#9734; &#9734; &#9734; &#9734; &#9734;</small>
+                  {% endif %}
+
+
+                </small>
                 <a href="{% url 'product_detail' item.slug %}">review</a>
               </div>
             </div>
