@@ -50,13 +50,13 @@
                 <small class="text-muted">
                   
 
-                  {%if item.get_rating > 1 and  item.get_rating < 2 %}
+                  {%if item.get_rating >= 1 and  item.get_rating < 2 %}
                   <small class="text-muted">&#9733; &#9734; &#9734; &#9734; &#9734;</small>
-                  {%elif item.get_rating > 2 and  item.get_rating < 3 %}
+                  {%elif item.get_rating >= 2 and  item.get_rating < 3 %}
                   <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small>
-                  {%elif item.get_rating > 3 and  item.get_rating < 4 %}
+                  {%elif item.get_rating >= 3 and  item.get_rating < 4 %}
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734;</small>
-                  {%elif item.get_rating > 4 and  item.get_rating < 5 %}
+                  {%elif item.get_rating >= 4 and  item.get_rating < 5 %}
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                   {%elif item.get_rating == 5 %}
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
