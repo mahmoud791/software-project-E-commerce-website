@@ -61,7 +61,14 @@ def cart(request):
     return render(request, 'home/cart.html', context)
 
 def checkout(request):
-    context = {}
+    if request.user.is_authenticated:
+        customer=request.user.customer
+        order, created=Order.objects.get_or_create(customer=customer,complete=False)
+        items=order.orderitem_set.all()
+    else:
+        items=[]
+    
+    context = {'items':items,'order':order}
     return render(request, 'home/checkout.html', context)
 
 def updateItem(request):
