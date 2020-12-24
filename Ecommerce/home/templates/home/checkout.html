@@ -5,6 +5,24 @@
     <br>
     <div class="row">
 		<div class="col-lg-6">
+			<div class="box-element">
+				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">Back to Cart</a>
+				<hr>
+				<h3>Order Summary:</h3>
+				<hr>
+				{%for item in items%}
+				<div class="cart-row">
+					<div style="flex:2">{{ item.product.name }}</div>
+					<div style="flex:1">{{ item.product.price|floatformat:2 }}</div>
+					<div style="flex:1"><p>{{item.quantity}}</p></div>
+				</div>
+				{%endfor%}
+				<h3><strong>Order Total:</strong></h3><br>
+				<h5>Items: {{order.get_cart_items}} items</h5>
+				<h5>Total: {{order.get_cart_total}} EGP</h5>
+			</div>
+		</div>
+		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
 				<form id="form">
 					<div id="user-info">
@@ -46,28 +64,9 @@
 			<div class="box-element hidden" id="payment-info">
 				<small>Paypal Options</small>
 			</div>
-			
-		</div>
-
-		<div class="col-lg-6">
-			<div class="box-element">
-				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
-				<hr>
-				<h3>Order Summary</h3>
-				<hr>
-				{%for item in items%}
-				<div class="cart-row">
-					<div style="flex:2">{{ item.product.name }}</div>
-					<div style="flex:1">{{ item.product.price|floatformat:2 }}</div>
-					<div style="flex:1"><p>{{item.quantity}}</p></div>
-				</div>
-				{%endfor%}
-				<h5>Items: {{order.get_cart_items}} items</h5>
-				<h5>Total: {{order.get_cart_total}} EGP</h5>
-			</div>
 		</div>
 	</div>
-
+<br><br>
 {%endblock content%}
 
 
