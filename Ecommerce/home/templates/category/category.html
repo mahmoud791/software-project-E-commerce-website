@@ -38,7 +38,9 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="{% url 'product_detail' item.slug %}"><img class="card-img-top" src="{% static 'images/'%}{{item.image}} " alt=""></a>
+              {%if not request.user.is_staff and request.user.is_authenticated%}
               <button data-product="{{item.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+              {%endif%}
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="{% url 'product_detail' item.slug %}">{{item.name}}</a>
