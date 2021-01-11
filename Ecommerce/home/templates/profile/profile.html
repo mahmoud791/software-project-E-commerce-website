@@ -152,6 +152,10 @@
                   
                 </div>
               </div>
+              {% if request.user.is_staff %}
+              <h1>Your products</h1>
+              {% endif %}
+              
               <div class="row">
                 {% for item in items %}       
                 <div class="col-lg-4 col-md-6 mb-4">
