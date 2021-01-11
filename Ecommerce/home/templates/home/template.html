@@ -79,9 +79,13 @@ var csrftoken = getToken('csrftoken');
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout'%}">Log Out</a>
             </li>
+            {% if request.user.is_staff %}
+            <!-- do nothing --> 
+            {%else%}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'cart'%}"><img style="width:25px;display: inline-block;margin-left: 15px;"  id="cart-icon" src="{% static 'images/cart.png' %}"></a>
             </li>
+            {%endif%}
           {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'register'%}">Sign Up</a>
@@ -103,7 +107,7 @@ var csrftoken = getToken('csrftoken');
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-          <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+          <p class="m-0 text-center text-white">Copyright &copy; E-commerce Ain Shams 2020</p>
         </div>
         <!-- /.container -->
       </footer>

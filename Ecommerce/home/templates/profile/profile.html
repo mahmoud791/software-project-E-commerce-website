@@ -32,7 +32,7 @@
                         {% if not request.user.is_staff %}
                         Customer
                         {% endif %}</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted font-size-sm">only seller accounts can add products</p>
                     </div>
                   </div>
                   {% if request.user.is_staff %}
@@ -148,85 +148,57 @@
                         {% endif %}
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
-                  </div>
+                  
+                  
                 </div>
               </div>
-              <div class="row gutters-sm">
-                <div class="col-sm-6 mb-3">
+              <div class="row">
+                {% for item in items %}       
+                <div class="col-lg-4 col-md-6 mb-4">
                   <div class="card h-100">
+                    <a href="{% url 'product_detail' item.slug %}"><img class="card-img-top" src="{% static 'images/'%}{{item.image}} " alt=""></a>
+                    <button data-product="{{item.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Orders in progress</i></h6>
-                      <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 300px; max-height: 250px;">
-                        <ul>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>Beetroot</li>
-                          </ul>
+                      <h4 class="card-title">
+                        <a href="{% url 'product_detail' item.slug %}">{{item.name}}</a>
+                      </h4>
+                      <h5>{{item.price}} EGP</h5>
+                      <p class="card-text">{{item.description}}</p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">
+      
+                        {%if item.get_rating >= 1 and  item.get_rating < 2 %}
+                        <small class="text-muted">&#9733; &#9734; &#9734; &#9734; &#9734;</small>
+                        {%elif item.get_rating >= 2 and  item.get_rating < 3 %}
+                        <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small>
+                        {%elif item.get_rating >= 3 and  item.get_rating < 4 %}
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734;</small>
+                        {%elif item.get_rating >= 4 and  item.get_rating < 5 %}
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        {%elif item.get_rating == 5 %}
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
+                        {% else %}
+                        <small class="text-muted">&#9734; &#9734; &#9734; &#9734; &#9734;</small>
+                        {% endif %}
+      
+      
+                      </small>
+                      <div class="float-right">
+                        <a href="{% url 'product_detail' item.slug %}">review</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Deliverd Orders</i></h6>
-                      <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 300px; max-height: 250px;">
-                        <ul>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>content</li>
-                          <li>Beetroot</li>
-                          </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {%endfor%}
               </div>
             </div>
           </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 {%endblock content%}

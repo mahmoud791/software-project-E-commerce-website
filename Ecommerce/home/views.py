@@ -14,7 +14,10 @@ def homePage(request):
 
 
 def user_profile(request):
-    context = {}
+    seller_products = Product.objects.filter(seller=request.user)
+    context = {
+        'items' : seller_products
+    }
     return render(request, 'profile/profile.html', context)
 
 def category(request,category):
@@ -118,7 +121,9 @@ def addNewProduct (request):
     category=request.POST["category"]
     description=request.POST["description"]
     image=request.FILES["image"]
-    newproduct = Product(name=name,description=description,price=price,image=image, category= category)
+    amount = request.POST["amount"]
+    seller = request.user
+    newproduct = Product(name=name,description=description,price=price,image=image, category= category,amount=amount,seller=seller)
     newproduct.save()
     
 

@@ -37,6 +37,8 @@ class Product (models.Model):
     price = models.FloatField()
     image = models.ImageField(null=True,blank=True)
     category = models.CharField(max_length=64,choices=CATEGORY,null=True)
+    seller = models.ForeignKey(User, related_name='seller',null=True,on_delete=models.CASCADE)
+    amount = models.IntegerField(null=True,blank=True)
 
     class Meta:
         unique_together = ('name','slug')

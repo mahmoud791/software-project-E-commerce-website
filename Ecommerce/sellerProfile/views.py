@@ -15,7 +15,9 @@ def addNewProduct (request):
     category=request.POST["category"]
     description=request.POST["description"]
     image=request.FILES["image"]
-    newproduct = Product(name=name,description=description,price=price,image=image, category= category)
+    amount = request.POST["amount"]
+    seller = request.user
+    newproduct = Product(name=name,description=description,price=price,image=image, category= category,amount=amount,seller=seller)
     newproduct.save()
     
 
