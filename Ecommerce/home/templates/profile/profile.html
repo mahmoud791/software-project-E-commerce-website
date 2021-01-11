@@ -157,7 +157,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                   <div class="card h-100">
                     <a href="{% url 'product_detail' item.slug %}"><img class="card-img-top" src="{% static 'images/'%}{{item.image}} " alt=""></a>
-                    <button data-product="{{item.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                    
                     <div class="card-body">
                       <h4 class="card-title">
                         <a href="{% url 'product_detail' item.slug %}">{{item.name}}</a>
