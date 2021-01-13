@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='category',
-            field=models.CharField(choices=[('clothes', 'clothes'), ('shoes', 'shoes'), ('wathces', 'wathces'), ('laptops', 'laptops'), ('mobile phones', 'mobile phones'), ('headphones/headsets', 'headphones/headsets'), ('perfumes/deodrants', 'perfumes/deodrants'), ('accessories', 'accessories'), (' kid toys', ' kid toys')], max_length=64, null=True),
+            field=models.CharField(choices=[('clothes', 'clothes'), ('shoes', 'shoes'), ('wathces', 'wathces'), ('laptops', 'laptops'), ('mobile phones', 'mobile phones'), ('headphones/headsets', 'headphones/headsets'), ('perfumes/deodrants', 'perfumes/deodrants'), ('accessories', 'accessories'), (' kid toys', ' kid toys'), ('HouseHold', 'HouseHold')], max_length=64, null=True),
         ),
     ]
