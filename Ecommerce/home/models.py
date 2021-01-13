@@ -26,6 +26,7 @@ class Product (models.Model):
         ('perfumes/deodrants','perfumes/deodrants'),
         ('accessories','accessories'),
         ('kid toys','kid toys'),
+        ('HouseHold', 'HouseHold'),
 
 
     )

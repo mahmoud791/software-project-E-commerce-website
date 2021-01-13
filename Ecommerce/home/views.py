@@ -40,6 +40,8 @@ def category(request,category):
         items = Product.objects.filter(category='accessories')
     elif category=='kid_toys':
         items = Product.objects.filter(category='kid toys')
+    elif category == 'household':
+        items = Product.objects.filter(category='HouseHold')
 
 
     context = {

@@ -14,6 +14,7 @@ urlpatterns = [
     path('perfumes&deodrants',views.category,{'category':'perfumes&deodrants'},name='perfumes&deodrants'),
     path('accessories',views.category,{'category':'accessories'},name='accessories'),
     path('kid_toys',views.category,{'category':'kid_toys'},name='kid_toys'),
+    path('household',views.category,{'category':'household'},name='household'),
     path('cart',views.cart,name = "cart"),
     path('checkout',views.checkout,name = "checkout"),
     path('update_item/',views.updateItem,name = "update_item"),
