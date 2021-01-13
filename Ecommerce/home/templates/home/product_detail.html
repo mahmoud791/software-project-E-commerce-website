@@ -38,9 +38,10 @@
         <img src="{% static 'images/'%}{{product.image}}" >
         
         <h1 class="title" >{{product.price}}EGP</h1>
+        <strong>seller: {{product.seller}}</strong>
         <h1 class="title">
 
-
+                        
                         {%if product.get_rating >= 1 and  product.get_rating < 2 %}
                         <small class="text-muted">&#9733; &#9734; &#9734; &#9734; &#9734;</small>
                         {%elif product.get_rating >= 2 and  product.get_rating < 3 %}
@@ -57,7 +58,7 @@
 
                   
 
-
+                        
         </h1>
         {%if not request.user.is_staff and request.user.is_authenticated%}
         <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
