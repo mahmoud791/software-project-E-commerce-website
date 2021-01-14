@@ -54,6 +54,7 @@ def category(request,category):
 
 
 def cart(request):
+    order=None
 
     if request.user.is_authenticated:
         customer=request.user.customer
@@ -66,6 +67,7 @@ def cart(request):
     return render(request, 'home/cart.html', context)
 
 def checkout(request):
+    order=None
     if request.user.is_authenticated:
         customer=request.user.customer
         order, created=Order.objects.get_or_create(customer=customer,complete=False)
